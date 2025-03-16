@@ -27,7 +27,7 @@ async function Post() {
     });
   };
 
-  const fileDetails = await getFileDetails("67d601af432c47641696d346");
+  const fileDetails = await getFileDetails("67d67732432c476416ac49f1");
   console.log(fileDetails);
 
   return (

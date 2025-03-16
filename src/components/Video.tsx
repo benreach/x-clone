@@ -15,7 +15,7 @@ function Video({path, className}: VideoTypes) {
     path={path}
     className={className}
     urlEndpoint={urlEndpoint}
-    transformation={[{ width:"1920", height:"1080"}]}
+    transformation={[{ width:"1920", height:"1080" ,q:"90"},{ raw: "l-text,i-REACH,fs-100,l-end" }]}
     controls={true}
   />
   )

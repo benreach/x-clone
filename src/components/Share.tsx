@@ -4,6 +4,7 @@ import Image from "./Image";
 import NextImage from "next/image";
 import { shareAction } from "@/actions";
 import ImageEditor from "./ImageEditor";
+import Link from "next/link";
 
 function Share() {
   const [media, setMedia] = useState<File | null>(null);
@@ -34,13 +35,15 @@ function Share() {
     >
       {/* avatars */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
-        <Image
-          alt="avatar"
-          path="/public/general/avatar.png"
-          width={100}
-          height={100}
-          tr={true}
-        />
+        <Link href="/re4chz">
+          <Image
+            alt="avatar"
+            path="/public/general/avatar.png"
+            width={100}
+            height={100}
+            tr={true}
+          />
+        </Link>
       </div>
       <div className="flex-1 flex flex-col gap-4">
         <input
@@ -126,7 +129,7 @@ function Share() {
                   <div
                     className="absolute top-2 right-2 bg-black bg-opacity-50 text-white 
                   h-8 w-8 flex items-center justify-center rounded-full text-sm cursor-pointer font-bold"
-                  onClick={() => setMedia(null)}
+                    onClick={() => setMedia(null)}
                   >
                     X
                   </div>
@@ -138,7 +141,7 @@ function Share() {
                   <div
                     className="absolute top-2 right-2 bg-black bg-opacity-50 text-white 
                   h-8 w-8 flex items-center justify-center rounded-full text-sm cursor-pointer font-bold"
-                  onClick={() => setMedia(null)}
+                    onClick={() => setMedia(null)}
                   >
                     X
                   </div>
