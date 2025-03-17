@@ -4,7 +4,6 @@ import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
 import { imagekit } from "@/utils";
 import Video from "./Video";
-import Link from "next/link";
 import PostDate from "./PostDate";
 
 interface FileDetailsResponse {
@@ -37,14 +36,13 @@ async function Post({ type }: PostProps) {
 
   return (
     <div className="p-4 border-y-[1px] border-borderGray">
-      {/* post  type */}
       <div className="flex items-center gap-2 text-sm text-textGray mb-2 font-bold">
         icon
-        <span>REACH's repost</span>
+        <span>{`REACH&apos;s repost`}</span> {/* Replaced single quote */}
       </div>
-      {/* Post content */}
+
       <div className={`flex gap-4 ${type === "status" ? "flex-col" : ""}`}>
-        {/* avatar */}
+
         <div
           className={` ${
             type === "status" ? "hidden" : ""
@@ -58,7 +56,7 @@ async function Post({ type }: PostProps) {
             tr={true}
           />
         </div>
-        {/* content */}
+
         <div className={`flex-1 flex flex-col gap-4`}>
           <div className=" flex items-center justify-between gap-1">
             <div className="flex items-center gap-2">
@@ -69,7 +67,7 @@ async function Post({ type }: PostProps) {
                 >
                   <Image
                     path="/public/icons/verify.png"
-                    alt="veryfied badge"
+                    alt="verified badge" 
                     width={100}
                     height={100}
                     tr={true}
@@ -82,13 +80,13 @@ async function Post({ type }: PostProps) {
             <PostInfo />
           </div>
           {/* text && media  */}
-          <p className="">
-          Sinn Sisamouth was a legendary Cambodian singer-songwriter, often called the "King of Khmer Music."
-          His golden voice and fusion of traditional Khmer and Western styles shaped Cambodia’s 1950s-70s music scene.
+          <p className="">{`
+            Sinn Sisamouth was a legendary Cambodian singer-songwriter, often called the "King of Khmer Music."
+            His golden voice and fusion of traditional Khmer and Western styles shaped Cambodia&apos;s 1950s-70s music scene. `}
           </p>
           <p>
-          He disappeared during the Khmer Rouge era, but his songs remain beloved across generations.
-          His legacy lives on, influencing Cambodian artists and preserving the soul of Khmer music. 🎶
+            He disappeared during the Khmer Rouge era, but his songs remain beloved across generations.
+            His legacy lives on, influencing Cambodian artists and preserving the soul of Khmer music. 🎶
           </p>
           {fileDetails && fileDetails.fileType === "image" ? (
             <Image
@@ -104,13 +102,6 @@ async function Post({ type }: PostProps) {
               className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
             />
           )}
-          {/* <Image
-            path="/public/general/post.jpeg"
-            alt=""
-            width={600}
-            height={600}
-            className="rounded-2xl ring-1 ring-borderGray"
-          /> */}
           <PostInteractions />
         </div>
       </div>

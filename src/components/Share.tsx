@@ -17,7 +17,11 @@ function Share() {
     sensitive: false,
   });
 
-  const handleMediaChange = (e) => {
+  interface MediaChangeEvent extends React.ChangeEvent<HTMLInputElement> {
+    target: HTMLInputElement & { files: FileList };
+  }
+
+  const handleMediaChange = (e: MediaChangeEvent) => {
     const file = e.target.files[0];
     if (file && e.target.files) {
       setMedia(file);

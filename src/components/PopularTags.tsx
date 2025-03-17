@@ -5,7 +5,7 @@ import Image from "./Image";
 function PopularTags() {
   return (
     <div className="flex flex-col gap-4 border-[1px] border-borderGray rounded-xl px-4 py-2 cursor-pointer">
-      <h1 className="font-bold text-xl ">What's happening?</h1>
+      <h1 className="font-bold text-xl ">{`What's happening?`}</h1>
       <div className="flex flex-col">
         <div className="flex justify-between items-center">
           <span className="text-textGray  text-sm">Music · Trending</span>

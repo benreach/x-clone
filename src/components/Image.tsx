@@ -3,7 +3,6 @@
 import React from "react";
 
 import { IKImage } from "imagekitio-next";
-import { access } from "fs";
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
 type ImageProps = {
