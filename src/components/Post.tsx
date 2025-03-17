@@ -2,10 +2,10 @@ import React from "react";
 import Image from "./Image";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
-import { resolve } from "path";
-import { rejects } from "assert";
 import { imagekit } from "@/utils";
 import Video from "./Video";
+import Link from "next/link";
+import PostDate from "./PostDate";
 
 interface FileDetailsResponse {
   width: number;
@@ -15,7 +15,12 @@ interface FileDetailsResponse {
   fileType: string;
   customMetadata?: { sensitive: boolean };
 }
-async function Post() {
+
+interface PostProps {
+  type?: "status" | "comment";
+}
+
+async function Post({ type }: PostProps) {
   const getFileDetails = async (
     fileId: string
   ): Promise<FileDetailsResponse> => {
@@ -27,7 +32,7 @@ async function Post() {
     });
   };
 
-  const fileDetails = await getFileDetails("67d67732432c476416ac49f1");
+  const fileDetails = await getFileDetails("67d8596c432c4764162f1f7c");
   console.log(fileDetails);
 
   return (
@@ -38,9 +43,13 @@ async function Post() {
         <span>REACH's repost</span>
       </div>
       {/* Post content */}
-      <div className="flex gap-4">
+      <div className={`flex gap-4 ${type === "status" ? "flex-col" : ""}`}>
         {/* avatar */}
-        <div className="relative w-10 h-10 rounded-full overflow-hidden">
+        <div
+          className={` ${
+            type === "status" ? "hidden" : ""
+          } relative w-10 h-10 rounded-full overflow-hidden `}
+        >
           <Image
             path="/public/icons/profile.svg"
             alt=""
@@ -50,12 +59,14 @@ async function Post() {
           />
         </div>
         {/* content */}
-        <div className="flex-1 flex flex-col gap-2">
-          <div className=" flex items-center justify-between gap-2">
+        <div className={`flex-1 flex flex-col gap-4`}>
+          <div className=" flex items-center justify-between gap-1">
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-1">
                 <h1 className="text-sm  font-bold">REACH</h1>
-                <div className="relative w-4 h-4 overflow-hidden rounded-full">
+                <div
+                  className={`relative w-4 h-4 overflow-hidden rounded-full`}
+                >
                   <Image
                     path="/public/icons/verify.png"
                     alt="veryfied badge"
@@ -65,20 +76,19 @@ async function Post() {
                   />
                 </div>
               </div>
-              <span className="text-md text-textGray">@re4chz</span>
-              <span className="text-md text-textGray"> • 1 day ago</span>
+              <span className="text-md text-textGray">@re4chz </span>
+              <PostDate createdAt="2025-02-17T14:30:00Z" />
             </div>
             <PostInfo />
           </div>
           {/* text && media  */}
           <p className="">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.
+          Sinn Sisamouth was a legendary Cambodian singer-songwriter, often called the "King of Khmer Music."
+          His golden voice and fusion of traditional Khmer and Western styles shaped Cambodia’s 1950s-70s music scene.
           </p>
-          <br />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.
+          He disappeared during the Khmer Rouge era, but his songs remain beloved across generations.
+          His legacy lives on, influencing Cambodian artists and preserving the soul of Khmer music. 🎶
           </p>
           {fileDetails && fileDetails.fileType === "image" ? (
             <Image
@@ -86,7 +96,7 @@ async function Post() {
               alt=""
               width={fileDetails.width}
               height={fileDetails.height}
-              className={fileDetails.customMetadata?.sensitive? "blur-lg":""}
+              className={`rounded-xl ${fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}`}
             />
           ) : (
             <Video

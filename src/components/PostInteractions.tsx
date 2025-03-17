@@ -1,22 +1,26 @@
 "use client";
 
+import Link from "next/link";
+
 function PostInteractions() {
   return (
     <div className="flex items-center justify-between text-textGray text-sm">
-      <div className="flex gap-1">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.9 8.9 0 0 1-4-.9L3 21l1.9-5.5a8.38 8.38 0 0 1-1.4-4.6 8.5 8.5 0 1 1 17 0z" />
-        </svg>
+      <div className="flex gap-1 cursor-pointer">
+        <Link href="/comments/status/:id">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.9 8.9 0 0 1-4-.9L3 21l1.9-5.5a8.38 8.38 0 0 1-1.4-4.6 8.5 8.5 0 1 1 17 0z" />
+          </svg>
+        </Link>
         157
       </div>
       <div className="flex gap-1">
