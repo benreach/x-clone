@@ -39,10 +39,10 @@ function Share() {
     >
       {/* avatars */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
-        <Link href="/re4chz">
+        <Link href="/profile">
           <Image
             alt="avatar"
-            path="/public/general/avatar.png"
+            path="/public/icons/profile.svg"
             width={100}
             height={100}
             tr={true}
@@ -53,7 +53,7 @@ function Share() {
         <input
           type="text"
           placeholder="What's happening?"
-          className="bg-transparent outline-none text-inputGray text-xl"
+          className="bg-transparent outline-none text-white text-xl"
         />
         <div className="">
           <div className="flex gap-2">

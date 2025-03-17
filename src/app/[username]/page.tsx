@@ -26,7 +26,7 @@ function UserPage() {
           <div className="w-full aspect-[3/1]  relative">
             <Image
               alt=""
-              path="/public/general/cover.jpg"
+              path="x-cover.jpeg"
               width={600}
               height={200}
               tr={true}
@@ -39,7 +39,7 @@ function UserPage() {
           >
             <Image
               alt=""
-              path="/public/general/avatar.png"
+              path="/public/icons/profile.svg"
               width={100}
               height={100}
               tr={true}

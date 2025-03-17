@@ -16,7 +16,7 @@ function PopularTags() {
             height={16}
           />
         </div>
-        <span className="font-bold text-white">#Benjamin</span>
+        <span className="font-bold text-white">#Sin Sisamuth</span>
         <span className="text-textGray text-sm">13K posts</span>
       </div>
       <div className="flex flex-col">
@@ -29,7 +29,7 @@ function PopularTags() {
             height={16}
           />
         </div>
-        <span className="font-bold text-white">#Nancy</span>
+        <span className="font-bold text-white">#KhmerPOP</span>
         <span className="text-textGray text-sm">13K posts</span>
       </div>
       <div className="flex flex-col">

@@ -12,7 +12,7 @@ const menuList = [
   {
     id: 2,
     name: "Explore",
-    link: "/explore",
+    link: "/",
     icon: "explore.svg",
   },
   {
@@ -54,7 +54,7 @@ const menuList = [
   {
     id: 9,
     name: "Profile",
-    link: "/",
+    link: "/profile",
     icon: "profile.svg",
   },
   {
@@ -71,12 +71,6 @@ const LeftBar = () => {
       {/* logo menu button */}
       <div className=" flex flex-col items-center xxl:items-start">
         <Link href="/" className="p-2 rounded-full hover:bg-[#181818]">
-          {/* <Image
-            path="/public/icons/logo.svg"
-            alt="logo"
-            width={26.25}
-            height={26.25}
-          /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
